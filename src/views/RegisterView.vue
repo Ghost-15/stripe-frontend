@@ -44,7 +44,7 @@ const handleSubmit = async () => {
     if (!err?.response) {
       errMsg.value = 'Fetch Failed'
       console.log("error: "+err)
-    } else if (err.response?.status === 404) {
+    } else if (err.response?.status === 400) {
       errMsg.value = 'Invalid user data received'
     } else {
       errMsg.value = 'Fetch Failed'
