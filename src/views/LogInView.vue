@@ -1,44 +1,38 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import axios from '../api/axios';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import axios from '../stores/useAxios.js';
+import { useAuthStore } from "../stores/useAuthStore.js";
 
-const router = useRouter();
-const route = useRoute();
 
+const router = useRouter()
+const authStore = useAuthStore()
 const username = ref('');
 const password = ref('');
 const errMsg = ref('');
 const loading = ref(false);
 const refEl = ref(null);
 
-const from = route?.query?.from || '/';
-
-onMounted(() => {
-  refEl.value?.focus();
-});
-
-watch([username, password], () => {
-  errMsg.value = '';
-});
-
 const handleSubmit = async () => {
   try {
     loading.value = true;
     const response = await axios.post(
-        '/backend/auth',
-        JSON.stringify({ username: username.value, password: password.value }),
+        '/auth',
+        JSON.stringify({
+          username: username.value,
+          password: password.value
+        }),
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         }
     );
 
-    // const accessToken = response?.data?.accessToken;
-    // const role = response?.data?.role;
-    // setAuth({ username: username.value, role, accessToken });
+    const accessToken = response.data.accessToken;
+    const roles = response.data.roles;
+    authStore.setAuth(accessToken, roles)
 
-    await router.replace(from);
+    await router.push('/hub')
   } catch (err) {
     loading.value = false;
     if (!err?.response) {
@@ -48,9 +42,6 @@ const handleSubmit = async () => {
     } else {
       errMsg.value = 'Login Failed';
     }
-    refEl.value?.focus();
-  } finally {
-    loading.value = false;
   }
 };
 </script>

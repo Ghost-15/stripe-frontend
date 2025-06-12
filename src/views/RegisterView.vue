@@ -1,5 +1,5 @@
 <script setup>
-import axios from '../api/axios.js';
+import axios from '../stores/useAxios.js';
 import { ref } from 'vue'
 
 const first_name = ref('')

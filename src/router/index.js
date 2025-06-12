@@ -1,13 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from "../stores/useAuthStore.js";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/hub',
-      name: 'hub',
-      component: () => import('../views/HubView.vue'),
-    },
     {
       path: '/login',
       name: 'login',
@@ -18,7 +14,45 @@ const router = createRouter({
       name: 'register',
       component: () => import('../views/RegisterView.vue'),
     },
+    {
+      path: '/hub',
+      name: 'hub',
+      component: () => import('../views/HubView.vue'),
+      meta: {
+        requiresAuth: true,
+        allowedRoles: ['USER', 'DEV'],
+      }
+    },
+    {
+      path: '/forbidden',
+      name: 'forbidden',
+      component: () => import('../views/ForbiddenView.vue'),
+    },
   ],
+})
+
+// Garde globale
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+
+  const requiresAuth = to.meta.requiresAuth
+  const allowedRoles = to.meta.allowedRoles
+
+  if (requiresAuth) {
+    if (!authStore.accessToken) {
+      console.log("authStore.accessToken "+authStore.accessToken)
+      // Pas connecté : rediriger vers login
+      next({ name: 'login', query: { redirect: to.fullPath } })
+    } else if (allowedRoles && !allowedRoles.includes(authStore.roles)) {
+      console.log("allowedRoles "+authStore.roles)
+      // Connecté mais rôle interdit
+      next({ name: 'forbidden' })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router
