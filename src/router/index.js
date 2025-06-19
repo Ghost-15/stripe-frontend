@@ -20,7 +20,7 @@ const router = createRouter({
       component: () => import('../views/HubView.vue'),
       meta: {
         requiresAuth: true,
-        allowedRoles: ['USER', 'DEV'],
+        allowedRoles: ['DEV', 'ADMIN'],
       }
     },
     {
@@ -31,7 +31,6 @@ const router = createRouter({
   ],
 })
 
-// Garde globale
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
 
@@ -40,12 +39,8 @@ router.beforeEach((to, from, next) => {
 
   if (requiresAuth) {
     if (!authStore.accessToken) {
-      console.log("authStore.accessToken "+authStore.accessToken)
-      // Pas connecté : rediriger vers login
       next({ name: 'login', query: { redirect: to.fullPath } })
-    } else if (allowedRoles && !allowedRoles.includes(authStore.roles)) {
-      console.log("allowedRoles "+authStore.roles)
-      // Connecté mais rôle interdit
+    } else if (!authStore.roles.some(role => allowedRoles.includes(role))) {
       next({ name: 'forbidden' })
     } else {
       next()
@@ -54,5 +49,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
+// Admin Marchand
 export default router

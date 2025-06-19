@@ -6,7 +6,6 @@ const axiosInstance = axios.create({
     withCredentials: true
 })
 
-// Intercepteur pour ajouter le token
 axiosInstance.interceptors.request.use(
     (config) => {
         const authStore = useAuthStore()
@@ -29,7 +28,7 @@ axiosInstance.interceptors.response.use(
         if (error.response?.status === 401) {
             const authStore = useAuthStore()
             authStore.logout()
-            window.location.href = '/login' // redirection forcée
+            window.location.href = '/login'
         }
         return Promise.reject(error)
     }
