@@ -1,7 +1,6 @@
 <script setup>
 import { useAuthStore } from "../stores/useAuthStore.js";
 const authStore = useAuthStore()
-
 </script>
 
 <template>
@@ -24,15 +23,15 @@ const authStore = useAuthStore()
               <svg class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M10.83 5a3.001 3.001 0 0 0-5.66 0H4a1 1 0 1 0 0 2h1.17a3.001 3.001 0 0 0 5.66 0H20a1 1 0 1 0 0-2h-9.17ZM4 11h9.17a3.001 3.001 0 0 1 5.66 0H20a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H4a1 1 0 1 1 0-2Zm1.17 6H4a1 1 0 1 0 0 2h1.17a3.001 3.001 0 0 0 5.66 0H20a1 1 0 1 0 0-2h-9.17a3.001 3.001 0 0 0-5.66 0Z"/>
               </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Balances</span>
+              <span class="flex-1 ms-3 whitespace-nowrap">Transactions</span>
             </a>
           </li>
           <li>
             <a href="#" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
               <svg class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2.952.462c-.483.19-.868.432-1.19.71-.363.315-.638.677-.831.93l-.106.14c-.21.268-.36.418-.574.527C6.125 6.883 5.74 7 5 7a1 1 0 0 0 0 2c.364 0 .696-.022 1-.067v.41l-1.864 4.2a1.774 1.774 0 0 0 .821 2.255c.255.133.538.202.825.202h2.436a1.786 1.786 0 0 0 1.768-1.558 1.774 1.774 0 0 0-.122-.899L8 9.343V8.028c.2-.188.36-.38.495-.553.062-.079.118-.15.168-.217.185-.24.311-.406.503-.571a1.89 1.89 0 0 1 .24-.177A3.01 3.01 0 0 0 11 7.829V20H5.5a1 1 0 1 0 0 2h13a1 1 0 1 0 0-2H13V7.83a3.01 3.01 0 0 0 1.63-1.387c.206.091.373.19.514.29.31.219.532.465.811.78l.025.027.02.023v1.78l-1.864 4.2a1.774 1.774 0 0 0 .821 2.255c.255.133.538.202.825.202h2.436a1.785 1.785 0 0 0 1.768-1.558 1.773 1.773 0 0 0-.122-.899L18 9.343v-.452c.302.072.633.109 1 .109a1 1 0 1 0 0-2c-.48 0-.731-.098-.899-.2-.2-.12-.363-.293-.651-.617l-.024-.026c-.267-.3-.622-.7-1.127-1.057a5.152 5.152 0 0 0-1.355-.678 3.001 3.001 0 0 0-5.896.04Z" clip-rule="evenodd"/>
+                <path fill="currentColor" d="M8 20q-2.925 0-4.962-2.037T1 13q0-2.675 1.763-4.663T7.175 6.05l-.9-.95Q6 4.8 6 4.4t.275-.675q.3-.3.725-.3t.7.275l2.6 2.6q.3.3.3.7t-.3.7l-2.575 2.575q-.3.3-.712.3t-.713-.3q-.275-.3-.275-.712t.275-.688l.775-.775Q5.3 8.45 4.15 9.825T3 13q0 2.075 1.463 3.538T8 18h2q.425 0 .713.288T11 19t-.288.713T10 20zm6-9q-.425 0-.712-.288T13 10V5q0-.425.288-.712T14 4h7q.425 0 .713.288T22 5v5q0 .425-.288.713T21 11zm0 9q-.425 0-.712-.288T13 19v-5q0-.425.288-.712T14 13h7q.425 0 .713.288T22 14v5q0 .425-.288.713T21 20zm1-2h5v-3h-5z"/>
               </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Transactions</span>
+              <span class="flex-1 ms-3 whitespace-nowrap">Changer de plan</span>
             </a>
           </li>
           <li>

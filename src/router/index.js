@@ -10,9 +10,19 @@ const router = createRouter({
       component: () => import('../views/LogInView.vue'),
     },
     {
-      path: '/register',
-      name: 'register',
-      component: () => import('../views/RegisterView.vue'),
+      path: '/abonnement',
+      name: 'abonnement',
+      component: () => import('../views/AbonnementView.vue'),
+    },
+    {
+      path: '/standardRegister',
+      name: 'standardRegister',
+      component: () => import('../views/StandardRegisterView.vue'),
+    },
+    {
+      path: '/marchandRegister',
+      name: 'marchandRegister',
+      component: () => import('../views/MarchandRegisterView.vue'),
     },
     {
       path: '/hub',

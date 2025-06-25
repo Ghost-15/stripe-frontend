@@ -7,7 +7,6 @@ import Sidebar from "../components/SideBar.vue";
   <Sidebar />
   <div class="flex-1 py-10 px-4 sm:px-10">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h5 class="text-xl font-medium text-stone-800 mb-2">Bienvenu a Financial Record</h5>
 
         <div class="grid grid-cols-3 gap-4">
           <div class="...">01</div>

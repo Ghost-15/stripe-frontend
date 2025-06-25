@@ -33,11 +33,12 @@ const handleSubmit = async () => {
     )
 
     if (response?.status === 201) {
-      first_name.value = ''
-      last_name.value = ''
-      username.value = ''
-      password.value = ''
+      first_name.value = '';
+      last_name.value = '';
+      username.value = '';
+      password.value = '';
       succMsg.value = "Nouveau utilisateur ajouté. Un mail a été envoyé à l'adresse email recueillie."
+      loading.value = false
     }
   } catch (err) {
     loading.value = false
@@ -60,7 +61,7 @@ const handleSubmit = async () => {
   <div class="flex-1 py-10 px-4 sm:px-10">
     <div class="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
       <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-        Ajouter un utilisateur</h2>
+        Compte Standard</h2>
     </div>
 
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">

@@ -31,7 +31,7 @@ const handleSubmit = async () => {
     const accessToken = response.data.accessToken;
     const roles = response.data.roles;
     authStore.setAuth(accessToken, roles)
-
+    console.log(accessToken+" "+roles)
     await router.push('/hub')
   } catch (err) {
     loading.value = false;
@@ -89,7 +89,7 @@ const handleSubmit = async () => {
           </div>
 
           <label for="terms" class="ms-2 text-sm font-medium text-gray-600">..
-            <router-link to="/register" class="text-blue-500 hover:underline">
+            <router-link to="/abonnement" class="text-blue-500 hover:underline">
               inscription
             </router-link>
           </label>
