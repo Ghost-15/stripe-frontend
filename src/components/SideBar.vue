@@ -27,22 +27,22 @@ const authStore = useAuthStore()
             </a>
           </li>
           <li>
+            <div v-if="authStore.roles[0] === 'ADMIN'">
             <a href="#" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
               <svg class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M8 20q-2.925 0-4.962-2.037T1 13q0-2.675 1.763-4.663T7.175 6.05l-.9-.95Q6 4.8 6 4.4t.275-.675q.3-.3.725-.3t.7.275l2.6 2.6q.3.3.3.7t-.3.7l-2.575 2.575q-.3.3-.712.3t-.713-.3q-.275-.3-.275-.712t.275-.688l.775-.775Q5.3 8.45 4.15 9.825T3 13q0 2.075 1.463 3.538T8 18h2q.425 0 .713.288T11 19t-.288.713T10 20zm6-9q-.425 0-.712-.288T13 10V5q0-.425.288-.712T14 4h7q.425 0 .713.288T22 5v5q0 .425-.288.713T21 11zm0 9q-.425 0-.712-.288T13 19v-5q0-.425.288-.712T14 13h7q.425 0 .713.288T22 14v5q0 .425-.288.713T21 20zm1-2h5v-3h-5z"/>
               </svg>
               <span class="flex-1 ms-3 whitespace-nowrap">Changer de plan</span>
             </a>
+            </div>
           </li>
           <li>
-            <div v-if="authStore.roles === 'MARCHAND'">
               <a href="#" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
-                <svg class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                  <path fill-rule="evenodd" d="M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm-1.5 8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-3Zm6.82-3.096a5.51 5.51 0 0 0-2.797-6.293 3.5 3.5 0 1 1 2.796 6.292ZM19.5 18h.5a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-1.1a5.503 5.503 0 0 1-.471.762A5.998 5.998 0 0 1 19.5 18ZM4 7.5a3.5 3.5 0 0 1 5.477-2.889 5.5 5.5 0 0 0-2.796 6.293A3.501 3.501 0 0 1 4 7.5ZM7.1 12H6a4 4 0 0 0-4 4 2 2 0 0 0 2 2h.5a5.998 5.998 0 0 1 3.071-5.238A5.505 5.505 0 0 1 7.1 12Z" clip-rule="evenodd"/>
+                <svg class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
                 </svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">Customers</span>
+                <span class="flex-1 ms-3 whitespace-nowrap">Payment link</span>
               </a>
-            </div>
           </li>
         </ul>
 
@@ -53,7 +53,7 @@ const authStore = useAuthStore()
               <svg class="w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
               </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Deconnexion</span>
+              <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
             </a>
           </li>
 

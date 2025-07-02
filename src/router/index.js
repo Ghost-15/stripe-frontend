@@ -5,6 +5,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'start',
+      component: () => import('../views/StartView.vue'),
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('../views/LogInView.vue'),
@@ -30,7 +35,7 @@ const router = createRouter({
       component: () => import('../views/HubView.vue'),
       meta: {
         requiresAuth: true,
-        allowedRoles: ['DEV', 'ADMIN'],
+        allowedRoles: ['ADMIN', 'MARCHAND'],
       }
     },
     {
