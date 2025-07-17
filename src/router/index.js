@@ -39,6 +39,24 @@ const router = createRouter({
       }
     },
     {
+        path: '/settings',
+        name: 'settings',
+        component: () => import('../views/SettingsView.vue'),
+        meta: {
+            requiresAuth: true,
+            allowedRoles: ['ADMIN', 'MARCHAND'],
+        }
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('../views/AccountView.vue'),
+      meta: {
+        requiresAuth: true,
+        allowedRoles: ['MARCHAND'],
+      }
+    },
+    {
       path: '/forbidden',
       name: 'forbidden',
       component: () => import('../views/ForbiddenView.vue'),
@@ -64,5 +82,4 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-// Admin Marchand
 export default router
