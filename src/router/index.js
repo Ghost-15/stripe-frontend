@@ -61,6 +61,11 @@ const router = createRouter({
       name: 'forbidden',
       component: () => import('../views/ForbiddenView.vue'),
     },
+    {
+      path: '/linkpayment/:token',
+      name: 'linkpayment',
+      component: () => import('../views/LinkPaymentView.vue'),
+    },
   ],
 })
 

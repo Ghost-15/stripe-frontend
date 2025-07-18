@@ -12,7 +12,7 @@ const password = ref('');
 const errMsg = ref('');
 const loading = ref(false);
 const refEl = ref(null);
-//test
+
 const handleSubmit = async () => {
   try {
     loading.value = true;
@@ -55,18 +55,19 @@ const handleSubmit = async () => {
       <form class="space-y-6" @submit.prevent="handleSubmit">
             <h5 class="text-xl font-medium text-white">Sign in to our platform</h5>
             <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
+              <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
               <input
                   id="username"
                   name="username"
                   type="email"
                   v-model="username"
+                  placeholder="email@exemple.com"
                   class="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white"
                   required />
             </div>
             <div>
               <div class="flex items-start">
-                <label for="password" class="block mb-2 text-sm font-medium text-white">Your password</label>
+                <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
                 <a href="#" class="ms-auto text-sm hover:underline text-red-600">Lost Password?</a>
               </div>
               <input
@@ -74,6 +75,7 @@ const handleSubmit = async () => {
                   name="password"
                   type="password"
                   v-model="password"
+                  placeholder="********"
                   class="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white"
                   required />
             </div>
