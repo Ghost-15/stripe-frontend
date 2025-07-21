@@ -6,14 +6,10 @@
     <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
       <div class="@container">
         <div class="@[480px]:p-4">
-          <div
-              class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
-              style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvyL9qutewKr6veHJ47tZ4ojPIHVtp-2O00Asby4YH-mpXualqlxJvRnBkQ0UzicckwIYCNzxtHcsvlYt61aeeSjaBSKarddwVFoIXBcub5J2E91L_IvsUKwpqNMzawRgZ1lMeoVIG7JpXOMxk81qQvwyTKRW51Qpixlz62P2vE77F4bEIjElRSCPsLrVGTofjp7AAaMFNTseMaPeP5m2R1HY5MuRjELbSrtTj53E27fkq1O1PK8UUDn8Cwsy-H_buZglVbGQobgU");'
-          >
+          <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+              style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvyL9qutewKr6veHJ47tZ4ojPIHVtp-2O00Asby4YH-mpXualqlxJvRnBkQ0UzicckwIYCNzxtHcsvlYt61aeeSjaBSKarddwVFoIXBcub5J2E91L_IvsUKwpqNMzawRgZ1lMeoVIG7JpXOMxk81qQvwyTKRW51Qpixlz62P2vE77F4bEIjElRSCPsLrVGTofjp7AAaMFNTseMaPeP5m2R1HY5MuRjELbSrtTj53E27fkq1O1PK8UUDn8Cwsy-H_buZglVbGQobgU");'>
             <div class="flex flex-col gap-2 text-left">
-              <h1
-                  class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
-              >
+              <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
                 Payments infrastructure for the internet
               </h1>
               <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
@@ -21,31 +17,37 @@
                 online.
               </h2>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-              <router-link to="/login">
-                <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#bdd2e9] text-[#14191f] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span class="truncate">Sigin</span>
-                </button>
-              </router-link>
 
-              <router-link to="/abonnement">
-                <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#2b3540] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span class="truncate">Sigup</span>
-                </button>
-              </router-link>
+            <div class="flex justify-items-center">
+              <div class="grid grid-cols-2">
+                <div>
+                  <router-link to="/login">
+                    <button class="cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#bdd2e9] text-[#14191f] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Log In</span>
+                    </button>
+                  </router-link>
+                </div>
+
+                <div>
+                  <router-link to="/abonnement">
+                    <button class="cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#2b3540] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Create a new account</span>
+                    </button>
+                  </router-link>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
       <div class="flex flex-col gap-10 px-4 py-10 @container">
         <div class="flex flex-col gap-4">
-          <h1
-              class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
-          >
+          <h1 class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
             Unified platform
           </h1>
           <p class="text-white text-base font-normal leading-normal max-w-[720px]">
-            Acme Co is a complete payments platform with simple, pay-as-you-go pricing. Our products power payments for online and in-person retailers, subscription
+            Pec is a complete payments platform with simple, pay-as-you-go pricing. Our products power payments for online and in-person retailers, subscription
             businesses, software platforms and marketplaces, and everything in between.
           </p>
         </div>

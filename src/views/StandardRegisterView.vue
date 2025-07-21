@@ -58,18 +58,16 @@ const handleSubmit = async () => {
 
 
 <template>
-  <div class="flex-1 py-10 px-4 sm:px-10">
+  <div class="flex-1 py-10 px-4 sm:px-10 bg-gradient-to-t from-gray-600 to-gray-900 to-50%">
     <div class="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-        Compte Standard</h2>
-    </div>
-
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <p ref="refEl" class="text-green-600 text-center" aria-live="assertive">{{ succMsg }}</p>
-      <p ref="refEl" class="text-red-600 text-center" aria-live="assertive">{{ errMsg }}</p>
+      <div class="w-full max-w-sm p-4 border border-gray-700 rounded-lg shadow-sm sm:p-6 md:p-8 bg-gray-800">
+        <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-white">
+          Compte Standard</h2>
+        <p ref="refEl" class="text-green-600 text-center" aria-live="assertive">{{ succMsg }}</p>
+        <p ref="refEl" class="text-red-600 text-center" aria-live="assertive">{{ errMsg }}</p>
       <form @submit.prevent="handleSubmit" class="space-y-6">
-      <div>
-        <label for="First name" class="block text-sm font-medium leading-6 text-gray-900">
+      <div class="mt-5">
+        <label for="First name" class="block text-sm font-medium leading-6 text-gray-400">
           Prénom</label>
         <div class="mt-2">
           <input
@@ -83,7 +81,7 @@ const handleSubmit = async () => {
       </div>
 
       <div>
-        <label for="Last name" class="block text-sm font-medium leading-6 text-gray-900">
+        <label for="Last name" class="block text-sm font-medium leading-6 text-gray-400">
           Nom</label>
         <div class="mt-2">
           <input
@@ -97,7 +95,7 @@ const handleSubmit = async () => {
       </div>
 
       <div>
-        <label for="Username" class="block text-sm font-medium leading-6 text-gray-900">
+        <label for="Username" class="block text-sm font-medium leading-6 text-gray-400">
           Email</label>
         <div class="mt-2">
           <input
@@ -111,7 +109,7 @@ const handleSubmit = async () => {
       </div>
 
         <div>
-          <label for="Password" class="block text-sm font-medium leading-6 text-gray-900">
+          <label for="Password" class="block text-sm font-medium leading-6 text-gray-400">
             Password</label>
           <div class="mt-2">
             <input
@@ -129,9 +127,8 @@ const handleSubmit = async () => {
             v-if="!loading"
             id="Submit"
             type="submit"
-            class="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Soumettre
+            class="flex w-full justify-center rounded-md  bg-[#bdd2e9] text-[#14191f] px-5 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Create a new account
         </button>
 
         <button
@@ -188,5 +185,6 @@ const handleSubmit = async () => {
 
       </form>
     </div>
+  </div>
   </div>
 </template>

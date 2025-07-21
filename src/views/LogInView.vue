@@ -53,7 +53,7 @@ const handleSubmit = async () => {
 
       <div class="mt-20 w-full max-w-sm p-4 border border-gray-700 rounded-lg shadow-sm sm:p-6 md:p-8 bg-gray-800">
       <form class="space-y-6" @submit.prevent="handleSubmit">
-            <h5 class="text-xl font-medium text-white">Sign in to our platform</h5>
+            <h5 class="text-xl font-medium text-white">Log in to our platform</h5>
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
               <input
