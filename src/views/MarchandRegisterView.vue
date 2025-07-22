@@ -72,19 +72,21 @@ const handleSubmit = async () => {
       code.value = '';
       kbis.value = '';
 
-      succMsg.value = "Nouveau utilisateur ajouté. Un mail a été envoyé à l'adresse email recueillie.";
+      succMsg.value = "Nouveau utilisateur ajouté. Un mail a été envoyé à l'adresse email recueillie."
+      loading.value = false
     }
   } catch (err) {
+    loading.value = false
     if (!err?.response) {
-      errMsg.value = 'La requête a échoué.';
+      errMsg.value = 'Fetch Failed'
+      console.log("error: "+err)
     } else if (err.response?.status === 400) {
-      errMsg.value = 'Données invalides.';
+      errMsg.value = 'Invalid user data received'
     } else {
-      errMsg.value = 'Erreur lors de la soumission.';
+      errMsg.value = 'Fetch Failed'
+      console.log("error: "+err)
     }
-    refEl.value?.focus();
-  } finally {
-    loading.value = false;
+    refEl.value?.focus()
   }
 };
 </script>

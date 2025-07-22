@@ -30,6 +30,7 @@ axiosInstance.interceptors.response.use(
             const authStore = useAuthStore()
             authStore.logout()
             window.location.href = '/login'
+            console.log("401")
         }
         return Promise.reject(error)
     }
