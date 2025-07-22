@@ -97,7 +97,7 @@ const handleSubmit = async () => {
       <div class="w-full max-w-sm p-4 border border-gray-700 rounded-lg shadow-sm sm:p-6 md:p-8 bg-gray-800">
         <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-white">
           Compte Marchand</h2>
-        <p ref="refEl" class="text-green-600 text-center" aria-live="assertive">{{ succMsg }}</p>
+        <p ref="refEl" class="text-green-600 text-center" aria-live="assertive">{{ succMsg }} </p>
         <p ref="refEl" class="text-red-600 text-center" aria-live="assertive">{{ errMsg }}</p>
         <form @submit.prevent="handleSubmit" class="space-y-6">
 

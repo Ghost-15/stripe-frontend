@@ -2,7 +2,8 @@ import axios from 'axios'
 import { useAuthStore } from './useAuthStore'
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://stripe-backend-8he6.onrender.com',
+    // baseURL: 'http://localhost:3000',
     withCredentials: true
 })
 
