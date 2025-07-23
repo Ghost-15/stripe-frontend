@@ -28,9 +28,8 @@ const handleSubmit = async () => {
         }
     );
 
-    const accessToken = response.data.accessToken;
-    const roles = response.data.roles;
-    authStore.setAuth(accessToken, roles)
+    const { accessToken, roles, user } = response.data;
+    authStore.setAuth(accessToken, roles, user)
     await router.push('/hub')
   } catch (err) {
     loading.value = false;
