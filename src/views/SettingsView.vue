@@ -2,19 +2,10 @@
 import Sidebar from "../components/SideBar.vue";
 import { useAuthStore } from "../stores/useAuthStore.js";
 import { ref } from 'vue';
-import axios from "../stores/useAxios.js"; // ← AJOUTE CETTE LIGNE
+import axios from "../stores/useAxios.js"; 
 
 const authStore = useAuthStore();
 
-// HACK TEMPORAIRE pour tester - simule un utilisateur connecté
-if (!authStore.user) {
-  authStore.setAuth('fake-token', ['ADMIN'], {
-    id: 1,
-    first_name: 'John',
-    last_name: 'Doe', 
-    username: 'john@test.com'
-  });
-}
 
 const firstName = ref(authStore.user?.first_name || '');
 const lastName = ref(authStore.user?.last_name || '');
