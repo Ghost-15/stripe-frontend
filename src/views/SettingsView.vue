@@ -2,18 +2,32 @@
 import Sidebar from "../components/SideBar.vue";
 import { useAuthStore } from "../stores/useAuthStore.js";
 import { ref } from 'vue';
+import axios from "../stores/useAxios.js"; // ← AJOUTE CETTE LIGNE
 
 const authStore = useAuthStore();
 
-// Variables pour le formulaire
+// HACK TEMPORAIRE pour tester - simule un utilisateur connecté
+if (!authStore.user) {
+  authStore.setAuth('fake-token', ['ADMIN'], {
+    id: 1,
+    first_name: 'John',
+    last_name: 'Doe', 
+    username: 'john@test.com'
+  });
+}
+
 const firstName = ref(authStore.user?.first_name || '');
 const lastName = ref(authStore.user?.last_name || '');
 const email = ref(authStore.user?.username || '');
 const newPassword = ref('');
 const confirmPassword = ref('');
 
-// Fonction pour sauvegarder
 const saveChanges = async () => {
+  if (!authStore.user || !authStore.user.id) {
+    alert('Erreur: utilisateur non connecté');
+    return;
+  }
+
   if (newPassword.value && newPassword.value !== confirmPassword.value) {
     alert('Les mots de passe ne correspondent pas');
     return;
@@ -31,23 +45,15 @@ const saveChanges = async () => {
   }
 
   try {
-    const response = await fetch('/users', {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authStore.accessToken}`
-      },
-      body: JSON.stringify(updateData)
-    });
+    const response = await axios.patch('/user', updateData);
 
-    if (response.ok) {
+    if (response.status === 200) {
       alert('Modifications sauvegardées !');
-      // Mettre à jour le store
+
       authStore.user.first_name = firstName.value;
       authStore.user.last_name = lastName.value;
       authStore.user.username = email.value;
       
-      // Vider les champs mot de passe
       newPassword.value = '';
       confirmPassword.value = '';
     } else {
@@ -69,7 +75,6 @@ const saveChanges = async () => {
         <h3 class="text-md font-medium text-gray-900 mb-4">Personal details</h3>
         
         <div class="space-y-4">
-          <!-- Prénom et Nom -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Prénom</label>
@@ -91,7 +96,6 @@ const saveChanges = async () => {
             </div>
           </div>
           
-          <!-- Email -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input 
@@ -102,7 +106,6 @@ const saveChanges = async () => {
             >
           </div>
           
-          <!-- Mots de passe -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Nouveau mot de passe</label>
@@ -124,7 +127,6 @@ const saveChanges = async () => {
             </div>
           </div>
 
-          <!-- Préférences -->
           <div class="border-t border-gray-200 pt-4 mt-6">
             <h4 class="text-sm font-semibold text-gray-900 mb-3">Préférences de communication</h4>
             <div class="flex items-center">
@@ -139,7 +141,6 @@ const saveChanges = async () => {
             </div>
           </div>
           
-          <!-- Bouton sauvegarder -->
           <div class="pt-4 border-t border-gray-200 mt-6">
             <button 
               @click="saveChanges"
@@ -151,7 +152,6 @@ const saveChanges = async () => {
         </div>
       </div>
 
-      <!-- Section Business (si MARCHAND) -->
       <div v-if="authStore.roles[0] === 'MARCHAND'" class="border border-gray-200 rounded-lg mt-4">
         <router-link to="/account" class="block">
           <div class="p-4 hover:bg-gray-50 transition-colors duration-200">
