@@ -66,6 +66,16 @@ const router = createRouter({
       name: 'linkpayment',
       component: () => import('../views/LinkPaymentView.vue'),
     },
+    {
+      path: '/stripe/success',
+      name: 'stripeSuccess', 
+      component: () => import('../views/SuccessView.vue'),
+    },
+    {
+      path: '/stripe/cancel',
+      name: 'stripeCancel', 
+      component: () => import('../views/CancelView.vue'),
+    },
   ],
 })
 
