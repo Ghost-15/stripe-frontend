@@ -1,9 +1,55 @@
 <script setup>
-import { useRoute } from 'vue-router'
+import { useAuthStore } from "../stores/useAuthStore.js";
+import {ref, onMounted, watch} from 'vue'
+import { io } from "socket.io-client"
+import axios from 'axios'
 
-const route = useRoute()
-const token = route.params.token
+const authStore = useAuthStore()
+const userId = authStore.user.id
+const amount = ref(10)
+const status = ref('attente')
+const message = ref('')
 
+const socket = io("http://localhost:3000")
+
+onMounted(() => {
+  socket.on("connect", () => {
+    console.log("Socket connecté :", socket.id)
+
+    if (userId.value) {
+      socket.emit("join_user", userId.value)
+    }
+  })
+
+  watch(userId, (newId) => {
+    socket.emit("join_user", newId)
+  })
+
+  socket.on("payment_status", (data) => {
+    if (data.userId === userId.value) {
+      status.value = data.status
+      message.value = data.message
+    }
+  })
+})
+
+const launchPayment = async () => {
+  status.value = "en cours..."
+  message.value = ""
+
+  try {
+    const res = await axios.post("http://localhost:3000/webSocket", {
+      userId: userId.value,
+      description: "Paiement de test",
+      amount: amount.value
+    })
+    status.value = res.data.status
+    message.value = res.data.message
+  } catch (err) {
+    status.value = "erreur"
+    message.value = "Erreur de paiement"
+  }
+}
 </script>
 
 <template>
@@ -14,7 +60,7 @@ const token = route.params.token
     </div>
 
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <form @submit.prevent="handleSubmit" class="space-y-6">
+      <form @submit.prevent="launchPayment" class="space-y-6">
 
         <div>
           <label for="Username" class="block text-sm font-medium leading-6 text-gray-900">
