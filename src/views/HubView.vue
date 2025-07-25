@@ -1,6 +1,10 @@
 <script setup>
-import Sidebar from "../components/SideBar.vue";
 
+import Sidebar from "../components/SideBar.vue";
+import { useAuthStore } from "../stores/useAuthStore.js";
+const authStore = useAuthStore()
+
+ 
 </script>
 
 <template>
